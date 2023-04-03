@@ -1,9 +1,9 @@
 //two sum
 
-//first attempt
-
 let nums = [2, 7, 11, 15];
 let target = 9;
+
+//first attempt. big O n^2
 
 function twoSums (nums, target) {
   let answerArr = [];
@@ -14,6 +14,21 @@ function twoSums (nums, target) {
         answerArr.push(i);
         return answerArr;
       }
+    }
+  }
+}
+
+//second attempt
+
+function twoSums (nums, target) {
+  let prevValues = {};
+  for (let i=0; i < nums.length; i++) {
+    let neededValue = target - nums[i];
+    let index2 = prevValues[neededValue];
+    if (index2 != null) {
+      return [i, index2]
+    } else {
+      prevValues[nums[i]] = i;
     }
   }
 }
