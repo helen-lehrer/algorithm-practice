@@ -7,13 +7,13 @@ let target = 9;
 
 function twoSums (nums, target) {
   let answerArr = [];
-  nums.foreach(number => {
+  for(z=0; z < nums.length; z++) {
     for(i=0; i < nums.length; i++) {
-      if (number + nums[i] === target && number.indexOf() !== i) {
-        answerArr.push(number);
-        answerArr.push(nums[i]);
+      if (nums[z] + nums[i] === target && z !== i) {
+        answerArr.push(z);
+        answerArr.push(i);
+        return answerArr;
       }
     }
-  })
-  return answerArr;
+  }
 }
