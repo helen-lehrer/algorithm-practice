@@ -52,3 +52,28 @@ function getFolderNames(names) {
 
   return result;
 }
+
+//last stone weight
+
+//first attempt
+var lastStoneWeight = function(stones) {
+  while (stones.length > 1) {
+      let twoStones = [];
+      stones = stones.sort((a,b) => (a-b));
+      twoStones.push(stones.pop());
+      twoStones.push(stones.pop());
+      twoStones.sort((a,b) => (a-b));
+      if (twoStones[0] === twoStones[1]) {
+          twoStones.splice(0, 2);
+      } else {
+          twoStones[1] = twoStones[1] - twoStones[0];
+          twoStones.splice(0,1);
+          stones.push(twoStones[0]);
+      }
+  }
+  if (stones.length === 1) {
+      return stones[0];
+  } else {
+      return 0;
+  }
+};
